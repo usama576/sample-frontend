@@ -1,10 +1,13 @@
+import Cookies from "js-cookie";
 import React, { createContext, useState } from "react";
 
 export const AuthContext = createContext();
 
 export const AuthProvider = (props) => {
-  const isLoggedIn = localStorage.getItem("isLoggedIn") === "true";
+  const isLoggedIn = Cookies.get("isLoggedIn")=== "true" 
+  // sessionStorage.getItem("isLoggedIn") === "true";
   const [isLogin, setLogin] = useState(isLoggedIn);
+  
   const children = props.children;
 
   return (

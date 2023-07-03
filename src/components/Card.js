@@ -2,8 +2,8 @@ import React from "react";
 import { Link } from "react-router-dom";
 
 const Card = (props) => {
-  const { id, title, body, image , tags } = props;
-  
+  const { id, title, body, image, tags } = props;
+
   return (
     <Link
       to={`/blog/${id}`}
@@ -13,7 +13,7 @@ const Card = (props) => {
         image: image,
         tags: tags,
       }}
-      className={`container justify-center  px-4 ${props.cols}`}
+      className={`container justify-center  px-4 ${props.cols} dark:bg-black `}
     >
       <div className="group m-5">
         <div className="justify-center  grid h-80 w-full overflow-hidden  ">
@@ -42,7 +42,7 @@ const Card = (props) => {
             href="#"
             className="group-hover:underline underline-offset-8 decoration-red-500 transition-all ease-in-out duration-500"
           >
-            <h1 className="font-semibold text-2xl ">{title}</h1>
+            <h1 className="font-semibold text-2xl   ">{title}</h1>
           </a>
         </div>
         <div>

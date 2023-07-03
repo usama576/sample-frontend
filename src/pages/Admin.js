@@ -1,19 +1,23 @@
 import React, { useContext } from "react";
 import { AuthContext } from "../Context/AuthContext";
-import { Navigate, useNavigate } from "react-router-dom";
+import { Navigate } from "react-router-dom";
 
 const Admin = () => {
   const { isLogin } = useContext(AuthContext);
-  const navigate = useNavigate();
+  // const isLogin  = sessionStorage.getItem("isLoggedIn")==="true"
   if (isLogin) {
     return (
       <>
         {" "}
-        <div>Admin Page</div>{" "}
+        <div className="h-[90vh] text-center pt-5">Admin Page</div>{" "}
       </>
     );
   } else {
-    return <><Navigate to='/login' replace /></>;
+    return (
+      <>
+        <Navigate to="/login" replace />
+      </>
+    );
   }
 };
 

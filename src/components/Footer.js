@@ -3,18 +3,27 @@ import { Link } from "react-router-dom";
 
 const Footer = () => {
   return (
-    <div className="m-0 bg-slate-50 p-10 w-full absolute ">
+    <div className="m-0 bg-slate-50 dark:bg-black p-10 w-full absolute ">
       <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 m-4 ">
         <div>
           <h1 className="font-medium my-4">Tags</h1>
           <div>
-            <a href="" className="block py-1 pointer-events-none hover:text-red-800">
+            <a
+              href=""
+              className="block py-1 pointer-events-none hover:text-red-800"
+            >
               Frontpage
             </a>
-            <a href="" className="block py-1 pointer-events-none hover:text-red-800">
+            <a
+              href=""
+              className="block py-1 pointer-events-none hover:text-red-800"
+            >
               Jakyll
             </a>
-            <a href=""  className="block py-1 pointer-events-none hover:text-red-800">
+            <a
+              href=""
+              className="block py-1 pointer-events-none hover:text-red-800"
+            >
               Blog
             </a>
           </div>
@@ -35,14 +44,14 @@ const Footer = () => {
         </div>
         <div className="sm:col-span-2 lg:col-span-1 lg:grid lg:grid-cols-2">
           <h1 className="font-medium my-4 lg:col-span-2">Newsletter</h1>
-          <div className="bg-white justify-center items-center px-6">
+          <div className="bg-white dark:bg-gray-900 justify-center items-center px-6">
             <input
               type="email"
               placeholder="Email"
-              className=" p-4 w-full block  items-center border-0 border-b focus:border-red-500 outline-none"
+              className=" p-4 w-full block  items-center border-0 border-b dark:bg-black dark:border-black dark:focus:border-red-500 focus:border-red-500 outline-none"
             />
           </div>
-          <div className="container p-5 lg:p-4 justify-center bg-white  items-center text-center">
+          <div className="container p-5 lg:p-4 justify-center bg-white dark:bg-black  items-center text-center">
             <button className="text-center bg-pink-700 text-white w-full  hover:opacity-90 duration-500  px-8 py-4  text-sm tracking-widest items-center">
               Subscribe
             </button>
