@@ -49,7 +49,7 @@ const Login = () => {
         setLogin(true);
         setError("");
         // sessionStorage.setItem("isLoggedIn", "true");
-        let ineOneMinute = new Date(new Date().getTime() + 60 * 1000);
+        let ineOneMinute = new Date(new Date().getTime() + 60 * 60 * 1000);
         Cookies.set("isLoggedIn", "true", { expires: ineOneMinute, path: "/" });
         // if(loginUser.remember === true){
         //   sessionStorage.setItem("remember", "true")

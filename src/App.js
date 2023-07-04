@@ -10,6 +10,8 @@ import { BlogPost } from "./pages/BlogPost";
 import { AuthProvider } from "./Context/AuthContext";
 import Login from "./pages/Login";
 import Admin from "./pages/Admin";
+import WriteBlog from "./components/WriteBlog";
+import UpdateBlog from "./components/UpdateBlog";
 
 function App() {
   // useEffect(() => {
@@ -49,6 +51,8 @@ function App() {
               <Route path="/login" element={<Login />}></Route>
               <Route path="/search" element={<Search />}></Route>
               <Route path="/blog/:id" element={<BlogPost />}></Route>
+              <Route path="/write" element={<WriteBlog />}></Route>
+              <Route path="/update" element={<UpdateBlog />}></Route>
               <Route
                 path="*"
                 element={<div>Error 404 page not found</div>}
