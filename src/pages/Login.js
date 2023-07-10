@@ -1,5 +1,5 @@
 import axios from "axios";
-import React, { useEffect, useState, useContext } from "react";
+import React, {  useState, useContext } from "react";
 import { AuthContext } from "../Context/AuthContext";
 import { useNavigate } from "react-router-dom";
 import Cookies from "js-cookie";
@@ -11,23 +11,11 @@ const Login = () => {
   });
   const [users, setUser] = useState();
   const [erroeMessage, setError] = useState("");
-  const [remember, setRemember] = useState(false);
   const { isLogin, setLogin } = useContext(AuthContext);
-  console.log(remember);
   const navigate = useNavigate();
-  useEffect(() => {
-    const getData = async () => {
-      try {
-        const response = await axios.get("http://localhost:5000/users");
-        // console.log(response.data);
-        setUser([...response.data]);
-        // console.log(users);
-      } catch (error) {
-        console.log(error);
-      }
-    };
-    getData();
-  }, []);
+    
+    
+  
   const changeHandler = (e) => {
     const { name, value } = e.target;
     setInput((preval) => {
@@ -36,28 +24,21 @@ const Login = () => {
     //  console.log(inputs)
   };
 
-  const submitHandler = (e) => {
+  const submitHandler = async (e) => {
     e.preventDefault();
     try {
-      const loginUser = users.find((element) => {
-        return (
-          element.email === inputs.email && element.password === inputs.password
-        );
-      });
-      console.log(loginUser);
-      if (loginUser) {
+      const {data} = await axios.post("http://127.0.0.1:8000/login",inputs);
+      setUser(data);
+      console.log(users);
+      console.log(data);
+      if (data) {
         setLogin(true);
         setError("");
-        // sessionStorage.setItem("isLoggedIn", "true");
-        let ineOneMinute = new Date(new Date().getTime() + 60 * 60 * 1000);
-        Cookies.set("isLoggedIn", "true", { expires: ineOneMinute, path: "/" });
-        // if(loginUser.remember === true){
-        //   sessionStorage.setItem("remember", "true")
-        // } else if(loginUser.remember === false){
-        //   sessionStorage.removeItem("remember")
-        // }
-
-        // alert("Logged In succesfully");
+        
+        let ineOneHour = new Date(new Date().getTime() + 60 * 60 * 1000);
+        Cookies.set("isLoggedIn", "true", { expires: ineOneHour, path: "/" });
+        Cookies.set("user_id", data.user_id, { expires: ineOneHour, path: "/" });
+        
         navigate("/");
       } else {
         setError(
@@ -121,24 +102,9 @@ const Login = () => {
               Log In
             </button>
             <br />
-            {/* <input
-              type="checkbox"
-              value="true"
-              id="check"
-              onChange={() => {
-                if (remember === false) {
-                  setRemember(true);
-                  localStorage.setItem("remmember", true);
-                } else {
-                  setRemember(false);
-                  localStorage.setItem("remmember",false);
-                }
-              }}
-            />
-            <label htmlFor="check" className="px-2 pt-0">
-              Remember Me
-            </label> */}
             {erroeMessage}
+            <br />
+            <button onClick={()=>{ navigate("/register")}}>Sign Up</button>
           </form>
         )}
       </div>

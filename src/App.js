@@ -1,4 +1,4 @@
-import React, { useEffect } from "react";
+import React from "react";
 import Header from "./components/Header";
 import Home from "./pages/Home";
 import Footer from "./components/Footer";
@@ -12,6 +12,8 @@ import Login from "./pages/Login";
 import Admin from "./pages/Admin";
 import WriteBlog from "./components/WriteBlog";
 import UpdateBlog from "./components/UpdateBlog";
+import Register from "./pages/Register";
+import Update from "./pages/Update";
 
 function App() {
   // useEffect(() => {
@@ -49,10 +51,12 @@ function App() {
               <Route path="/about" element={<About />}></Route>
               <Route path="/admin" element={<Admin />}></Route>
               <Route path="/login" element={<Login />}></Route>
+              <Route path="/register" element={<Register />}></Route>
               <Route path="/search" element={<Search />}></Route>
               <Route path="/blog/:id" element={<BlogPost />}></Route>
               <Route path="/write" element={<WriteBlog />}></Route>
               <Route path="/update" element={<UpdateBlog />}></Route>
+              <Route path="/update-user" element={<Update />}></Route>
               <Route
                 path="*"
                 element={<div>Error 404 page not found</div>}

@@ -46,7 +46,7 @@ const Header = () => {
   };
 
   return (
-    <div className="dark:bg-black ">
+    <div className="dark:bg-black bg-white ">
       <div className=" text-center  ">
         <button
           className="bg-slate-300 dark:bg-slate-900   px-3 py-2 my-1"
@@ -92,6 +92,8 @@ const Header = () => {
                   onClick={() => {
                     setLogin(false);
                     Cookies.remove("isLoggedIn");
+                    Cookies.remove("user_id");
+
                     // sessionStorage.removeItem("isLoggedIn");
                   }}
                 >
